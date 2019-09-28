@@ -1,6 +1,4 @@
-"use strict";
-
-const DynamDBConnection = require("./utils/dynamoDBUtils.js");
+const DynamDBConnection = require('./utils/dynamoDBUtils.js');
 
 module.exports.addproductcategory = async event => {
   const timestamp = new Date().getTime();

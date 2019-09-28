@@ -1,12 +1,12 @@
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 
 class DynamoDbUtils {
   constructor() {
-    /*AWS.config.update({
-      endpoint: "http://localhost:8000",
-      accessKeyId: "dummy",
-      secretAccessKey: "dummy"
-    });*/
+    AWS.config.update({
+      endpoint: 'http://localhost:8000',
+      accessKeyId: 'dummy',
+      secretAccessKey: 'dummy'
+    });
 
     this.dynamodbClient = new AWS.DynamoDB.DocumentClient({
       convertEmptyValues: true
@@ -27,7 +27,6 @@ class DynamoDbUtils {
   createDoc(documentObject) {
     return new Promise((resolve, reject) => {
       this.dynamodbClient.put(documentObject, (err, data) => {
-        console.log(data);
         if (!err) {
           resolve(data);
         }
