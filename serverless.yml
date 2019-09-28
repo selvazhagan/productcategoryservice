@@ -1,0 +1,89 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: productcategoryservice
+# app and org for use with dashboard.serverless.com
+app: productcategoryservice-app
+org: selvazhagan08
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+plugins:
+  - serverless-offline
+#  - serverless-dynamodb-local
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  environment:
+    PRODUCT_CATEGORY_TABLE: ProductCategory
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.PRODUCT_CATEGORY_TABLE}"
+
+package:
+  exclude:
+    - .gitignore
+
+functions:
+  getproductcategory:
+    handler: src/getproductcategory.getproductcategory
+
+    events:
+      - http:
+          path: productcategory/{id}
+          method: get
+          cors: true
+  
+  fetchallproductcategories:
+    handler: src/fetchallproductcategories.fetchallproductcategories
+
+    events:
+      - http:
+          path: fetchallproductcategories
+          method: get
+          cors: true
+  
+  addproductcategory:
+    handler: src/addproductcategories.addproductcategory
+
+    events:
+      - http:
+          path: productcategory/create
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    ProductCategoryTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        TableName: ${self:provider.environment.PRODUCT_CATEGORY_TABLE}
