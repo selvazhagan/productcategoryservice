@@ -9,6 +9,7 @@ module.exports.addproductcategory = async event => {
     Item: {
       id: data.id,
       productCategoryInfo: data,
+      activeInd: data.activeind,
       createdAt: timestamp,
       updatedAt: timestamp
     }

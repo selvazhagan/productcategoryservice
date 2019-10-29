@@ -28,7 +28,7 @@ provider:
   name: aws
   runtime: nodejs10.x
   environment:
-    PRODUCT_CATEGORY_TABLE: ProductCategory
+    PRODUCT_CATEGORY_TABLE: ProductCategories
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -82,8 +82,14 @@ resources:
           -
             AttributeName: id
             AttributeType: S
+          -
+            AttributeName: activeInd
+            AttributeType: S
         KeySchema:
           -
             AttributeName: id
             KeyType: HASH
+          -
+            AttributeName: activeInd
+            KeyType: RANGE
         TableName: ${self:provider.environment.PRODUCT_CATEGORY_TABLE}
