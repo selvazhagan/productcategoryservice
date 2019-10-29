@@ -1,4 +1,4 @@
-# productcategorysrevice
+#ProductCategoryService
 
 1. AWS dynamo db to store product categories
 2. Aws Lambda function to fetch and add product category
