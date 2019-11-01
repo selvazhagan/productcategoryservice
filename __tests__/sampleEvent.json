@@ -1,0 +1,60 @@
+{
+  "body": "{\n\t\"id\": 1,\n\t\"categoryname\":\"Rice\",\n\t\"imagepath\":\"/img/rice.jpg\",\n\t\"activeind\":\"Y\",\n\t\"newind\":\"Y\",\n\t\"categorydesc\":\"rice\"\n}",
+  "headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "PostmanRuntime/7.17.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "31105342-b966-4bb5-b246-91b03bafc3c3",
+    "Host": "localhost:3000",
+    "Accept-Encoding": "gzip, deflate",
+    "Content-Length": "123",
+    "Connection": "keep-alive"
+  },
+  "httpMethod": "POST",
+  "multiValueHeaders": {
+    "Content-Type": ["application/json"],
+    "User-Agent": ["PostmanRuntime/7.17.1"],
+    "Accept": ["*/*"],
+    "Cache-Control": ["no-cache"],
+    "Postman-Token": ["31105342-b966-4bb5-b246-91b03bafc3c3"],
+    "Host": ["localhost:3000"],
+    "Accept-Encoding": ["gzip, deflate"],
+    "Content-Length": ["123"],
+    "Connection": ["keep-alive"]
+  },
+  "multiValueQueryStringParameters": null,
+  "path": "/productcategory/create",
+  "pathParameters": {
+    "id" : "1"
+  },
+  "queryStringParameters": null,
+  "requestContext": {
+    "accountId": "offlineContext_accountId",
+    "apiId": "offlineContext_apiId",
+    "authorizer": { "principalId": "offlineContext_authorizer_principalId", "claims": "undefined" },
+    "httpMethod": "POST",
+    "identity": {
+      "accountId": "offlineContext_accountId",
+      "apiKey": "offlineContext_apiKey",
+      "caller": "offlineContext_caller",
+      "cognitoAuthenticationProvider": "offlineContext_cognitoAuthenticationProvider",
+      "cognitoAuthenticationType": "offlineContext_cognitoAuthenticationType",
+      "cognitoIdentityId": "offlineContext_cognitoIdentityId",
+      "cognitoIdentityPoolId": "offlineContext_cognitoIdentityPoolId",
+      "sourceIp": "127.0.0.1",
+      "user": "offlineContext_user",
+      "userAgent": "PostmanRuntime/7.17.1",
+      "userArn": "offlineContext_userArn"
+    },
+    "protocol": "HTTP/1.1",
+    "requestId": "offlineContext_requestId_ck2f9t17c0001qsv73zys2rxz",
+    "requestTimeEpoch": 1572560310142,
+    "resourceId": "offlineContext_resourceId",
+    "resourcePath": "/productcategory/create",
+    "stage": "dev"
+  },
+  "resource": "/productcategory/create",
+  "stageVariables": null,
+  "isOffline": true
+}
