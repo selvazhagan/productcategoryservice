@@ -6,9 +6,16 @@ module.exports.fetchallproductcategories = async () => {
   };
 
   const dynamoDbUtils = new DynamoDbUtils();
-  const response = await dynamoDbUtils.fetchAll(params);
-  return {
-    statusCode: 200,
-    body: JSON.stringify(response, null, 2)
-  };
+  try {
+    const response = await dynamoDbUtils.fetchAll(params);
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response, null, 2)
+    };
+  } catch (err) {
+    return {
+      statusCode: err.statusCode,
+      body: JSON.stringify(err, null, 2)
+    };
+  }
 };

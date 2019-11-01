@@ -9,10 +9,16 @@ module.exports.getproductcategory = async event => {
     }
   };
   const dynamDBConnection = new DynamDBConnection();
-  const response = await dynamDBConnection.fetchDoc(params);
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify(response, null, 2)
-  };
+  try {
+    const response = await dynamDBConnection.fetchDoc(params);
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response, null, 2)
+    };
+  } catch (err) {
+    return {
+      statusCode: err.statusCode,
+      body: JSON.stringify(err, null, 2)
+    };
+  }
 };
